@@ -96,11 +96,20 @@ footer {
 }
 
 .form input:focus {
-	border-bottom: 1px solid blue;
+	border-bottom: 1px solid #fb3958;
 }
 
 .form button {
 	background-color: white;
-	border: 1px solid blue;
+	border: 1px solid #fb3958;
 	padding: 10px;
+}
+
+.form button:hover {
+	background-color: #fb3958;
+	color:white;
+}
+
+.form button:active {
+	border: 1px solid white;
 }
