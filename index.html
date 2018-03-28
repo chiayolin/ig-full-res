@@ -14,10 +14,7 @@
 					IGR = "https://www.instagram.com";
 				$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 					$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
-						$("#download").attr("href", e["user"]["hd_profile_pic_url_info"]["url"]);
-						$("#download").click();
-						//window.open(e["user"]["hd_profile_pic_url_info"]["url"]);
-						//$("#result").attr("src", e["user"]["hd_profile_pic_url_info"]["url"])
+						$('<a>').attr("href", e["user"]["hd_profile_pic_url_info"]["url"]).attr("download", "img.png")[0].click()
 					})
 				})
 			})
@@ -27,14 +24,12 @@
     <body>
     	<section class="page-small">
 			<h2 class="branding"><span>相</span> IG Full-Res</h2>
-			<p class="sign-up-lead">View Instagram Profile Picture</p>
-			<p>Enter an username to view thier  profile picture in full-resolution.</p>
-			<section class="sign-up-form">
+			<p class="lead">Downlad Instagram Profile Picture</p>
+			<p>Enter an username to download thier profile picture in full-resolution.</p>
+			<section class="form">
             	<input id="username" autofocus class="" placeholder="Username"/>
             	<button id="submit" class="">GO!</button>
         	</section>
-        	<a id="download" style="display:none;" download ></a>
-        	<!-- <img id="result" src=""/> -->
 		</section>
 		<footer>
 			<p>© chiayolin.org 2018, Inc.</p>
