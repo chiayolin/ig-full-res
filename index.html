@@ -1,39 +1,47 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-		<title>IG Full-Res</title>
-		<meta name="description" content="View Instagram Profile Picture">
-		<link rel="stylesheet" href="5rt.css">
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      	<script type="text/javascript">	
-      	$(function(){
-			$("#submit").click(function() {
-				var API = "https://i.instagram.com/api/v1",
-					IGR = "https://www.instagram.com";
-				$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
-					$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
-						var URL = e["user"]["hd_profile_pic_url_info"]["url"]
-						$('<a>').attr("href", URL).attr("target", "_blank")[0].click()
-					})
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<title>IG Full-Res</title>
+	<meta name="description" content="View Instagram Profile Picture">
+	<link rel="stylesheet" href="5rt.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript">	
+  	$(function(){
+		$("#submit").click(function() {
+			var API = "https://i.instagram.com/api/v1",
+				IGR = "https://www.instagram.com";
+			$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
+				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
+					var URL = e["user"]["hd_profile_pic_url_info"]["url"]
+					$('<a>').attr("href", URL).attr("target", "_blank")[0].click()
 				})
 			})
-		});
-		</script>
-	</head>
-    <body>
-    	<section class="page-small">
-			<h2 class="branding"><span>相</span> IG Full-Res</h2>
-			<p class="lead">View Instagram Profile Picture</p>
-			<p>Enter an username to view thier profile picture in full-resolution.</p>
-			<section class="form">
-            	<input id="username" autofocus class="" placeholder="Username"/>
-            	<button id="submit" class="">GO!</button>
-        	</section>
-		</section>
-		<footer>
-			<p>© chiayolin.org 2018, Inc.</p>
-		</footer>
-    </body>
+		})
+	});
+	</script>
+</head>
+<body>
+	<section class="page-small">
+		<h2 class="branding"><span>相</span> IG Full-Res</h2>
+		<p class="lead">View Instagram Profile Picture</p>
+		<p>Enter an username to view thier profile picture in full-resolution.</p>
+		<section class="form">
+        	<input id="username" autofocus class="" placeholder="Username"/>
+        	<button id="submit" class="">GO!</button>
+    	</section>
+	</section>
+	<footer>
+		<p>© chiayolin.org 2018, Inc.</p>
+	</footer>
+	<script>
+	      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	      ga('create', 'UA-96958127-1', 'auto');
+	      ga('send', 'pageview');
+	</script>
+</body>
 </html>
