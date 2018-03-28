@@ -14,7 +14,8 @@
 					IGR = "https://www.instagram.com";
 				$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 					$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
-						document.getElementById('download').src = e["user"]["hd_profile_pic_url_info"]["url"];
+						$("#download").attr("href", e["user"]["hd_profile_pic_url_info"]["url"]);
+						$("#download").click();
 						//window.open(e["user"]["hd_profile_pic_url_info"]["url"]);
 						//$("#result").attr("src", e["user"]["hd_profile_pic_url_info"]["url"])
 					})
@@ -32,7 +33,7 @@
             	<input id="username" autofocus class="" placeholder="Username"/>
             	<button id="submit" class="">GO!</button>
         	</section>
-        	<iframe id="download" style="display:none;"></iframe>
+        	<a id="download" style="display:none;" download ></a>
         	<!-- <img id="result" src=""/> -->
 		</section>
 		<footer>
