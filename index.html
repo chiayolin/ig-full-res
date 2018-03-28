@@ -3,15 +3,20 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-	    <script type="text/javascript">
-			var IGR = "https://www.instagram.com",
-				API = "https://i.instagram.com/api/v1";
-			$.getJSON(IGR + '/google/?__a=1', function(o) { 
-				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
-					$("#result").attr("src", e["user"]["hd_profile_pic_url_info"]["url"])
+	    <script type="text/javascript">	
+	    	$(function(){
+				$("#submit").click(function() {
+					var IGR = "https://www.instagram.com",
+						API = "https://i.instagram.com/api/v1";
+					$.getJSON(IGR + '/google/?__a=1', function(o) { 
+						$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
+							$("#result").attr("src", e["user"]["hd_profile_pic_url_info"]["url"])
+						})
+					})
 				})
 			});
 		</script>
+		<button id="submit"/>
 		<img id="result" src=""/>
     </body>
 </html>
