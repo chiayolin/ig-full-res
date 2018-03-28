@@ -107,6 +107,7 @@ footer {
 
 .form button:hover {
 	background-color: #fb3958;
+	cursor:pointer;
 	color:white;
 }
 
