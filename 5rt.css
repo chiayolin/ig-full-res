@@ -1,0 +1,107 @@
+/*
+ * v1
+ * 5rt.css - 5rt.co's Standard CSS Library
+ * Chiayo Lin <chiayolin@5rt.co>
+ * MIT License
+ *
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,b,i,bi');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+a, abbr, address, article, aside, audio, b, blockquote, body, canvas, caption,
+cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, 
+figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, 
+iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, 
+q, s, samp, section, small, span, strong, sub, summary, sup, table, tbody, td,
+tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+}
+
+body, footer {
+	font-family: 'Roboto', sans-serif;
+	background-image: url("bgdesert.jpg");
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	font-weight: 300;
+	margin: 10px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+}
+
+h1 { font-size: 36px; } 
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+h6 { font-size: 16px; }
+p  { font-size: 14px; }
+
+a {
+	text-decoration:  none;
+}
+
+footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 1rem;
+   position: fixed;
+   text-align: center;
+   
+}
+
+.page-small {
+	margin: 0 auto;
+	max-width: 48rem;
+	padding: 4rem 8.5%;
+}
+
+.branding  {
+	margin: auto -1px;
+}
+
+.branding > span  {
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+.sign-up-lead {
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+.sign-up-form * {
+	font-weight: 100;
+	font-size: 24px;
+	width: 100%;
+}
+
+.sign-up-form input {
+	border: none;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid grey;
+}
+
+.sign-up-form input:focus {
+	border-bottom: 1px solid blue;
+}
+
+.sign-up-form button {
+	background-color: white;
+	border: 1px solid blue;
+	padding: 10px;
+}
