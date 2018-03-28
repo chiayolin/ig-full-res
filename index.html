@@ -10,12 +10,14 @@
   	<script type="text/javascript">	
   	$(function(){
 		$("#submit").click(function() {
+			document.getElementById("submit").disabled = true;
 			var API = "https://i.instagram.com/api/v1",
 				IGR = "https://www.instagram.com";
 			$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
 					var URL = e["user"]["hd_profile_pic_url_info"]["url"]
 					$('<a>').attr("href", URL).attr("target", "_blank")[0].click()
+					document.getElementById("submit").disabled = false;
 				})
 			})
 		})
