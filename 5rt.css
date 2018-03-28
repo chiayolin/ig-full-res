@@ -29,7 +29,6 @@ tfoot, th, thead, time, tr, tt, u, ul, var, video {
 
 body, footer {
 	font-family: 'Roboto', sans-serif;
-	background-image: url("bgdesert.jpg");
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -77,18 +76,18 @@ footer {
 	font-family: 'Noto Sans TC', sans-serif;
 }
 
-.sign-up-lead {
+.lead {
 	text-transform: uppercase;
 	font-weight: 400;
 }
 
-.sign-up-form * {
+.form * {
 	font-weight: 100;
 	font-size: 24px;
 	width: 100%;
 }
 
-.sign-up-form input {
+.form input {
 	border: none;
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -96,11 +95,11 @@ footer {
 	border-bottom: 1px solid grey;
 }
 
-.sign-up-form input:focus {
+.form input:focus {
 	border-bottom: 1px solid blue;
 }
 
-.sign-up-form button {
+.form button {
 	background-color: white;
 	border: 1px solid blue;
 	padding: 10px;
