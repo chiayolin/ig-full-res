@@ -101,17 +101,9 @@ footer {
 }
 
 .form button {
+	cursor: pointer;
 	background-color: white;
 	border: 1px solid #fb3958;
 	padding: 10px;
-}
-
-.form button:hover {
-	background-color: #fb3958;
-	cursor:pointer;
-	color:white;
-}
-
-.form button:active {
-	border: 1px solid white;
+	color:black;
 }

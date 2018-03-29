@@ -11,12 +11,13 @@
   	$(function(){
 		$("#submit").click(function() {
 			document.getElementById("submit").disabled = true;
+			$('#submit').val("Loading...")
 			var API = "https://i.instagram.com/api/v1",
 				IGR = "https://www.instagram.com";
 			$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
-					var URL = e["user"]["hd_profile_pic_url_info"]["url"]
-					$('<a>').attr("href", URL).attr("target", "_blank")[0].click()
+					var URL = e["user"]["hd_profile_pic_url_info"]["url"];
+					$('#submit').val("<a href=" + URL + " > View </a>");
 					document.getElementById("submit").disabled = false;
 				})
 			})
@@ -28,7 +29,7 @@
 	<section class="page-small">
 		<h2 class="branding"><span>相</span> IG Full-Res</h2>
 		<p class="lead">View Instagram Profile Picture</p>
-		<p>Enter an username to view thier profile picture in full-resolution.</p>
+		<p>Enter a username to view their profile picture in full-resolution.</p>
 		<section class="form">
         	<input id="username" autofocus class="" placeholder="Username"/>
         	<button id="submit" class="">GO!</button>
@@ -36,7 +37,7 @@
 	</section>
 	<footer>
 		<p>© 2018 <a href="http://chiayolin.org">chiayolin.org</a>
-		   ・ <a href="https://github.com/chiayolin/ig-full-res">/src</a></p>
+			・ <a href="https://github.com/chiayolin/ig-full-res">/src</a></p>
 	</footer>
 	<script>
 	      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
