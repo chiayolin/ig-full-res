@@ -17,7 +17,7 @@
 				s = 1;
 				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
 					var URL = e["user"]["hd_profile_pic_url_info"]["url"];
-					$('#result').html("<a href=\"" + URL "\">Click here to view image.</a>");
+					$('#result').html("<a href=\"" + URL + "\">Click here to view image.</a>");
 				})
 			});
 			setTimeout(function(){
