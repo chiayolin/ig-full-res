@@ -11,21 +11,23 @@
   	$(function(){
 		$("#submit").click(function() {
 			$("#submit").prop("disabled", true);
+			$('#result').html("Loading...");
 			var s = false;
 			var API = "https://i.instagram.com/api/v1", IGR = "https://www.instagram.com";
 			var r = $.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 				s = 1;
 				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
 					var URL = e["user"]["hd_profile_pic_url_info"]["url"];
-					$('#result').html("<a href=\"" + URL + "\">Click here to view image.</a>");
+					$('#result').html("<a target=\"_blank\" href=\"" + URL + "\">Click here to view image.</a>");
 				})
 			});
 			setTimeout(function(){
 					if(!s) {
 						r.abort(); 
-						$('#result').html("Username not found.");
+						$('#result').html("Username not found :(");
 					}
 				}, 5000);
+			$("#submit").prop("disabled", false);
 		})
 	});
 	</script>
