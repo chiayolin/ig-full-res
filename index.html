@@ -15,6 +15,7 @@
 			$('#submit').html("Loading...");
 			var API = "https://i.instagram.com/api/v1", IGR = "https://www.instagram.com";
 			var req = $.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
+					var success = true;
 					$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
 						var URL = e["user"]["hd_profile_pic_url_info"]["url"];
 						$('#submit').attr("onclick", "window.open(" + URL + ")");
@@ -23,10 +24,12 @@
 					})
 				});
 			setTimeout(function(){
-				req.abort(); 
-				$("#submit").prop("disabled", false);
-				$('#submit').html("GO!")
-			}, 10000);
+				if(!success) {
+					req.abort(); 
+					$("#submit").prop("disabled", false);
+					$('#submit').html("GO!")
+				}
+			}, 5000);
 		})
 	});
 	</script>
