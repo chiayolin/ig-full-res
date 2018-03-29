@@ -17,8 +17,9 @@
 			$.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
 					var URL = e["user"]["hd_profile_pic_url_info"]["url"];
-					$('#submit').html("<a href=" + URL + " > View </a>");
+					$('#submit').attr("onclick", "location.href=" + URL);
 					document.getElementById("submit").disabled = false;
+					$('#submit').html("View")
 				})
 			})
 		})
