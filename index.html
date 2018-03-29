@@ -8,35 +8,24 @@
 	<link rel="stylesheet" href="5rt.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script type="text/javascript">	
-  	function reset_button(text) {
-  		$("#submit").prop("disabled", false);
-		$('#submit').html(text);
-  	}
   	$(function(){
 		$("#submit").click(function() {
 			$("#submit").prop("disabled", true);
-			if($('#username').val()) {
-				$('#submit').html("Loading...");
-				var API = "https://i.instagram.com/api/v1", IGR = "https://www.instagram.com";
-				var req = $.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
-						success = true;
-						$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
-							var URL = e["user"]["hd_profile_pic_url_info"]["url"];
-							$('#submit').attr("onclick", "window.open(\"" + URL + "\")");
-							reset_button("View")
-						})
-					});
-				setTimeout(function(){
-					if(!success) {
-						req.abort(); 
-						reset_button("GO!");
+			var s = false;
+			var API = "https://i.instagram.com/api/v1", IGR = "https://www.instagram.com";
+			var r = $.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
+				s = 1;
+				$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
+					var URL = e["user"]["hd_profile_pic_url_info"]["url"];
+					$('#result').html("<a href=\"" + URL "\">Click here to view image.</a>");
+				})
+			});
+			setTimeout(function(){
+					if(!s) {
+						r.abort(); 
+						$('#result').html("Username not found.");
 					}
 				}, 5000);
-			}
-			else {
-				reset_button("GO!");
-			}
-			$('#username').val('')
 		})
 	});
 	</script>
@@ -50,6 +39,7 @@
         	<input id="username" autofocus class="" placeholder="Username"/>
         	<button type="button" id="submit">GO!</button>
     	</section>
+    	<p id="result"></p>
 	</section>
 	<footer>
 		<p>© 2018 <a href="http://chiayolin.org">chiayolin.org</a>
