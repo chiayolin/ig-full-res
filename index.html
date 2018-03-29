@@ -8,10 +8,6 @@
 	<link rel="stylesheet" href="5rt.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script type="text/javascript">	
-  	$(document).on("change", "input:text", function (e) {
-    	i
-	});
-  	
   	$(function(){
 		$("#submit").click(function() {
 			$("#submit").prop("disabled", true);
@@ -30,7 +26,7 @@
 				req.abort(); 
 				$("#submit").prop("disabled", false);
 				$('#submit').html("GO!")
-			}, 5000);
+			}, 10000);
 		})
 	});
 	</script>
