@@ -20,7 +20,6 @@
 				var API = "https://i.instagram.com/api/v1", IGR = "https://www.instagram.com";
 				var req = $.getJSON(IGR + '/' + $('#username').val() + '/?__a=1', function(o) { 
 						success = true;
-						$('#username').val('')
 						$.getJSON(API + "/users/" + o["graphql"]["user"]["id"] + "/info/", function(e) { 
 							var URL = e["user"]["hd_profile_pic_url_info"]["url"];
 							$('#submit').attr("onclick", "window.open(\"" + URL + "\")");
@@ -37,6 +36,7 @@
 			else {
 				reset_button("GO!");
 			}
+			$('#username').val('')
 		})
 	});
 	</script>
